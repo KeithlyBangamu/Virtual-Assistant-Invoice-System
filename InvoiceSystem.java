@@ -19,7 +19,7 @@ public class InvoiceSystem {
             System.out.println("4. Exit");
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine();
 
             switch (choice) {
                 case 1:
@@ -120,19 +120,19 @@ public class InvoiceSystem {
                     scanner.nextLine();
 
                     if (invoiceChoice == 1) {
-                        // ✅ Ensure at least one client exists
+                      
                         if (clients.isEmpty()) {
                             System.out.println("No clients available. Please add a client first.");
                             break;
                         }
 
-                        // ✅ Ensure at least one service exists
+                       
                         if (services.isEmpty()) {
                             System.out.println("No services available. Please add a service first.");
                             break;
                         }
                         
-                        // ✅ Display clients and allow selection
+                    
                         System.out.println("Available Clients:");
                         for (Client c : clients) {
                             System.out.println(c.getId() + ". " + c.getName());
@@ -141,7 +141,7 @@ public class InvoiceSystem {
                         int clientId = scanner.nextInt();
                         scanner.nextLine();
 
-                        // Find the selected client
+                       
                         Client selectedClient = null;
                         for (Client c : clients) {
                             if (c.getId() == clientId) {
@@ -155,7 +155,7 @@ public class InvoiceSystem {
                             break;
                         }
 
-                        // ✅ Display services and allow multiple selections
+                      
                         List<Service> selectedServices = new ArrayList<>();
                         System.out.println("Available Services:");
                         for (Service s : services) {
@@ -179,7 +179,7 @@ public class InvoiceSystem {
                             break;
                         }
 
-                        // ✅ Create Invoice
+                       
                         Invoice newInvoice = new Invoice(invoices.size() + 1, selectedClient, selectedServices);
                         invoices.add(newInvoice);
                         System.out.println("Invoice successfully created!");
